@@ -17,13 +17,13 @@ import matplotlib.pyplot as mpl
 # step.
 
 def errCalculate(x0, v0, t):
-    
+
     h = float(t)/100000
     ti = 0
     xi = x0
     vi = v0
     errArr = np.empty((0, 3), float)
-    
+
     while ti <= t:
         xAn = v0 * math.sin(ti)
         vAn = v0 * math.cos(ti)
@@ -35,8 +35,9 @@ def errCalculate(x0, v0, t):
         ti += h
         xi = Xiplus
         vi = Viplus
-        
-    return errArr 
+
+    fileData = np.savetxt('impErrsDat.txt', errArr)    
+    return errArr
 
 # Define functions to graph position and velocity errors as functions of time.
 
@@ -47,12 +48,12 @@ def errPosGrapher(errArr):
 def errVelGrapher(errArr):
     mpl.plot(errArr[:, 0], errArr[:, 2])
     mpl.show()
-    
+
 if __name__ == '__main__':
     x0 = float(sys.argv[1])
     v0 = float(sys.argv[2])
     t = float(sys.argv[3])
-    
+
     errs = errCalculate(x0, v0, t)
     errPosGrapher(errs)
     errVelGrapher(errs)
