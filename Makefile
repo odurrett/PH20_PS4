@@ -15,47 +15,5 @@ dats : anPhaseData.txt energyData.txt energyImpData.txt energySymData.txt exPhas
 clean :
 	rm -f *.txt
 
-anPhaseData.txt : anPhase.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-energyData.txt : energy.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-energyImpData.txt : energyImp.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-energySymData.txt : energySym.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-exPhaseData.txt : exPhase.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-hPropData.txt : hProp.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-hPropImpData.txt : hPropImp.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-imPhaseData.txt : imPhase.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-impAbsErrsData.txt : impAbsErrs.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-impErrsData.txt : impErrs.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-implicitData.txt : implicit.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-numAbsErrsData.txt : numAbsErrs.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-numErrsData.txt : numErrs.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-numInvestData.txt : numInvest.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
-
-symPhaseData.txt : symPhase.py
-  $(LANGUAGE) $^ $(X0) $(V0) $(T)
+%Data.txt : %.py
+	$(LANGUAGE) %.py $(X0) $(V0) $(T)
