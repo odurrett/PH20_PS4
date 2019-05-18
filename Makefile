@@ -16,4 +16,4 @@ clean :
 	rm -f *.txt
 
 %Data.txt : %.py
-	$(LANGUAGE) %.py $(X0) $(V0) $(T)
+	$(LANGUAGE) $^ $(X0) $(V0) $(T)
