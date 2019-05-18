@@ -3,6 +3,9 @@
 
 # Go through the codes one by one and generate their corresponding data files.
 
+clean :
+	rm -f *.txt
+
 anPhaseData.txt : anPhase.py
   python3 anPhase.py 0 5 50
 
