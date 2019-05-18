@@ -36,7 +36,7 @@ def errCalculate(x0, v0, t):
         xi = Xiplus
         vi = Viplus
 
-    fileData = np.savetxt('impErrsDat.txt', errArr)    
+    fileData = np.savetxt('impErrsData.txt', errArr)    
     return errArr
 
 # Define functions to graph position and velocity errors as functions of time.
