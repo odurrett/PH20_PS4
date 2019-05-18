@@ -3,6 +3,11 @@
 
 # Go through the codes one by one and generate their corresponding data files.
 
+LANGUAGE=python3
+X0=0
+V0=5
+T=50
+
 .PHONY : dats
 dats : anPhaseData.txt energyData.txt energyImpData.txt energySymData.txt exPhaseData.txt hPropData.txt hPropImpData.txt imPhaseData.txt impAbsErrsData.txt impErrsdata.txt implicitData.txt numAbsErrsData.txt numErrsData.txt numInvestData.txt symPhaseData.txt
 
@@ -11,46 +16,46 @@ clean :
 	rm -f *.txt
 
 anPhaseData.txt : anPhase.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 energyData.txt : energy.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 energyImpData.txt : energyImp.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 energySymData.txt : energySym.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 exPhaseData.txt : exPhase.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 hPropData.txt : hProp.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 hPropImpData.txt : hPropImp.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 imPhaseData.txt : imPhase.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 impAbsErrsData.txt : impAbsErrs.py
-  python 3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 impErrsData.txt : impErrs.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 implicitData.txt : implicit.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 numAbsErrsData.txt : numAbsErrs.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 numErrsData.txt : numErrs.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 numInvestData.txt : numInvest.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
 
 symPhaseData.txt : symPhase.py
-  python3 $^ 0 5 50
+  $(LANGUAGE) $^ $(X0) $(V0) $(T)
