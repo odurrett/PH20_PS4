@@ -3,6 +3,10 @@
 
 # Go through the codes one by one and generate their corresponding data files.
 
+.PHONY : dats
+dats : anPhaseData.txt energyData.txt energyImpData.txt energySymData.txt exPhaseData.txt hPropData.txt hPropImpData.txt imPhaseData.txt impAbsErrsData.txt impErrsdata.txt implicitData.txt numAbsErrsData.txt numErrsData.txt numInvestData.txt symPhaseData.txt
+
+.PHONY : clean
 clean :
 	rm -f *.txt
 
