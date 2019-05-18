@@ -14,19 +14,20 @@ import matplotlib.pyplot as mpl
 # the analytic solution.
 
 def posVelCalculate(x0, v0, t):
-    
+
     h = float(t)/1000
     ti = 0
     xi = x0
     vi = v0
     posVelArr = np.empty((0, 3), float)
-    
+
     while ti <= t:
         x = v0 * math.sin(ti)
         v = v0 * math.cos(ti)
         posVelArr = np.append(posVelArr, np.array([[ti, x, v]]), axis=0)
         ti += h
-        
+
+    fileData = np.savetxt('anPhaseData.txt', dataSeq)    
     return posVelArr
 
 # Define a function to graph position vs. velocity.
@@ -34,11 +35,11 @@ def posVelCalculate(x0, v0, t):
 def posVelGrapher(posVelArr):
     mpl.plot(posVelArr[:, 1], posVelArr[:, 2])
     mpl.show()
-    
+
 if __name__ == '__main__':
     x0 = float(sys.argv[1])
     v0 = float(sys.argv[2])
     t = float(sys.argv[3])
-    
+
     posVel = posVelCalculate(x0, v0, t)
     posVelGrapher(posVel)
