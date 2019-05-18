@@ -27,7 +27,7 @@ def posVelCalculate(x0, v0, t):
         posVelArr = np.append(posVelArr, np.array([[ti, x, v]]), axis=0)
         ti += h
 
-    fileData = np.savetxt('anPhaseData.txt', dataSeq)    
+    fileData = np.savetxt('anPhaseData.txt', posVelArr)    
     return posVelArr
 
 # Define a function to graph position vs. velocity.
