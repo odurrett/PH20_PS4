@@ -36,6 +36,7 @@ def posVelCalculate(x0, v0, t):
         xi = Xiplus
         vi = Viplus
 
+    fileData = np.savetxt('numInvestData.txt', posVelArr)
     return posVelArr
 
 # Define functions to graph position and velocity as functions of time.
