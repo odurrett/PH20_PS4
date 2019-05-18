@@ -16,13 +16,13 @@ import matplotlib.pyplot as mpl
 # step using the implicit Euler method.
 
 def posVelCalculate(x0, v0, t):
-    
+
     h = t/100000
     ti = 0
     xi = x0
     vi = v0
     posVelArr = np.empty((0, 3), float)
-    
+
     while ti <= t:
         posVelArr = np.append(posVelArr, np.array([[ti, xi, vi]]), axis=0)
         Xiplus = (xi + (h * vi))/(1 + h**2)
@@ -30,7 +30,8 @@ def posVelCalculate(x0, v0, t):
         ti += h
         xi = Xiplus
         vi = Viplus
-        
+
+    fileData = np.savetxt('implicitData.txt', posVelArr)    
     return posVelArr
 
 # Define functions to graph energy as a function of time.
@@ -38,16 +39,16 @@ def posVelCalculate(x0, v0, t):
 def posGrapher(posVelArr):
     mpl.plot(posVelArr[:, 0], posVelArr[:, 1])
     mpl.show()
-    
+
 def velGrapher(posVelArr):
     mpl.plot(posVelArr[:, 0], posVelArr[:, 2])
     mpl.show()
-    
+
 if __name__ == '__main__':
     x0 = float(sys.argv[1])
     v0 = float(sys.argv[2])
     t = float(sys.argv[3])
-    
+
     posVel = posVelCalculate(x0, v0, t)
     posGrapher(posVel)
     velGrapher(posVel)
