@@ -34,7 +34,6 @@ def errCalculate(x0, v0, t, h):
         xi = Xiplus
         vi = Viplus
 
-    fileData = np.savetxt('hPropData.txt', errArr)    
     return errArr
 
 # Define function to get the error array for each value of h and find the
@@ -79,6 +78,7 @@ def hErrs(x0, v0, t):
             errMax16 = item[1]
     hErrsArr = np.append(hErrsArr, np.array([[(h0/16), errMax16]]), axis=0)
 
+    fileData = np.savetxt('hPropData.txt', hErrsArr)
     return hErrsArr
 
 
