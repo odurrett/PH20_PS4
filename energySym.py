@@ -31,7 +31,7 @@ def enCalculate(x0, v0, t):
         xi = Xiplus
         vi = Viplus
 
-    fileData = np.savetxt('energySymData.txt', dataSeq)    
+    fileData = np.savetxt('energySymData.txt', enArr)    
     return enArr
 
 # Define functions to graph energy as a function of time.
