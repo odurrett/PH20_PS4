@@ -15,13 +15,13 @@ import matplotlib.pyplot as mpl
 # step using the symplectic Euler method.
 
 def enCalculate(x0, v0, t):
-    
+
     h = float(t)/100000
     ti = 0
     xi = x0
     vi = v0
     enArr = np.empty((0, 2), float)
-    
+
     while ti <= t:
         ei = xi**2 + vi**2
         enArr = np.append(enArr, np.array([[ti, ei]]), axis=0)
@@ -30,7 +30,8 @@ def enCalculate(x0, v0, t):
         ti += h
         xi = Xiplus
         vi = Viplus
-        
+
+    fileData = np.savetxt('energySymData.txt', dataSeq)    
     return enArr
 
 # Define functions to graph energy as a function of time.
@@ -38,11 +39,11 @@ def enCalculate(x0, v0, t):
 def enGrapher(enArr):
     mpl.plot(enArr[:, 0], enArr[:, 1])
     mpl.show()
-    
+
 if __name__ == '__main__':
     x0 = float(sys.argv[1])
     v0 = float(sys.argv[2])
     t = float(sys.argv[3])
-    
+
     energy = enCalculate(x0, v0, t)
     enGrapher(energy)
