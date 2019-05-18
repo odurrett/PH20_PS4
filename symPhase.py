@@ -14,13 +14,13 @@ import matplotlib.pyplot as mpl
 # the symplectic Euler method.
 
 def posVelCalculate(x0, v0, t):
-    
+
     h = float(t)/1000
     ti = 0
     xi = x0
     vi = v0
     posVelArr = np.empty((0, 3), float)
-    
+
     while ti <= t:
         posVelArr = np.append(posVelArr, np.array([[ti, xi, vi]]), axis=0)
         Xiplus = xi + (h * vi)
@@ -28,7 +28,8 @@ def posVelCalculate(x0, v0, t):
         ti += h
         xi = Xiplus
         vi = Viplus
-        
+
+    fileData = np.savetxt('symPhaseData.txt', posVelArr)    
     return posVelArr
 
 # Define a function to graph position vs. velocity.
@@ -36,11 +37,11 @@ def posVelCalculate(x0, v0, t):
 def posVelGrapher(posVelArr):
     mpl.plot(posVelArr[:, 1], posVelArr[:, 2])
     mpl.show()
-    
+
 if __name__ == '__main__':
     x0 = float(sys.argv[1])
     v0 = float(sys.argv[2])
     t = float(sys.argv[3])
-    
+
     posVel = posVelCalculate(x0, v0, t)
     posVelGrapher(posVel)
